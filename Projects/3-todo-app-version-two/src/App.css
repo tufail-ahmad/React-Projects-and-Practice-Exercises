@@ -1,0 +1,21 @@
+.app-name {
+  font-weight: 600;
+  font-size: 50px;
+  margin: 20px 0px;
+}
+
+.kg-row {
+  text-align: left;
+  margin: 10px;
+  position: relative;
+  left: 10%;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+}
+
+.kg-btn {
+  width: 80%;
+}
