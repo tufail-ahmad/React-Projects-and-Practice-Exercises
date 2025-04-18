@@ -1,0 +1,14 @@
+.calContainer {
+  width: 350px;
+  margin-left: 30%;
+  margin-top: 20px;
+  padding: 10px 0px;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: white;
+  box-shadow: 5px 5px 20px rgba(52, 204, 255, 0.3),
+    -5px -5px 20px rgba(245, 245, 245);
+}
