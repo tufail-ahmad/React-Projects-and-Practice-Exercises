@@ -2,9 +2,15 @@ import Item from "./Item";
 
 function FoodItems({ items }) {
   return (
-    <ul class="list-group">
+    <ul className="list-group">
       {items.map((item) => (
-        <Item key={item} item={item}></Item>
+        <Item
+          key={item}
+          item={item}
+          handleBuyButton={() => {
+            console.log(`${item} bought`);
+          }}
+        ></Item>
       ))}
     </ul>
   );

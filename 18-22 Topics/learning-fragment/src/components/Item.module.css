@@ -1,3 +1,7 @@
 .kgSpan {
   color: rgb(14, 84, 87);
 }
+
+.button {
+  float: right;
+}
