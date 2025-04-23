@@ -1,8 +1,8 @@
 import styles from "./Item.module.css";
 
-function Item({ item, handleBuyButton }) {
+function Item({ item, bought, handleBuyButton }) {
   return (
-    <li className="list-group-item">
+    <li className={`list-group-item ${bought && "active"}`}>
       <span className={styles.kgSpan}>{item}</span>
       <button
         className={`${styles.button} btn btn-info`}
