@@ -3,22 +3,24 @@ import FoodInput from "./components/FoodInput";
 import FoodItems from "./components/FoodItems";
 import ListEmptyMsg from "./components/ListEmptyMsg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let foodItems = ["Milk", "Green Vegetables", "Ghee", "Dal", "Salad"];
+  let [foodItems, setFoodItems] = useState([]);
 
-  let textToShow = "Food Item entered by user";
-
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
-    textToShow = event.target.value;
+  const onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      let newFoodItem = event.target.value;
+      event.target.value = "";
+      let newItems = [...foodItems, newFoodItem];
+      setFoodItems(newItems);
+    }
   };
 
   return (
     <Container>
       <h1 className="food-heading">Healthy Food</h1>
-      <FoodInput handleOnChange={handleOnChange}></FoodInput>
-      <p>{textToShow}</p>
+      <FoodInput handleKeyDown={onKeyDown}></FoodInput>
       <ListEmptyMsg items={foodItems}></ListEmptyMsg>
       <FoodItems items={foodItems}></FoodItems>
     </Container>
