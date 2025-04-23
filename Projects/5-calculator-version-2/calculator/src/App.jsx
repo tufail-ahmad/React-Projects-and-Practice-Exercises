@@ -12,14 +12,26 @@ function App() {
     if (buttonText === "=") {
       setDisplay1Value(eval(display2Value));
       setDisplay2Value("");
-    } else if (buttonText === "TbBackspace") {
-      let newValue = display2Value.substring(0, display2Value.length - 1);
-      setDisplay2Value(newValue);
+    } else if (buttonText === "()") {
+      if (display2Value.includes("(")) {
+        setDisplay2Value(display2Value + ")");
+      } else {
+        setDisplay2Value(display2Value + "(");
+      }
+    } else if (buttonText === "DEL") {
+      setDisplay2Value(display2Value.substring(0, display2Value.length - 1));
     } else if (buttonText === "AC") {
       setDisplay1Value("");
       setDisplay2Value("");
     } else {
       setDisplay2Value(display2Value + buttonText);
+      setDisplay2Value((prevValue) => {
+        if (prevValue.length > 20) {
+          return prevValue.substring(0, 20);
+        }
+        return prevValue;
+      });
+      setDisplay1Value("");
     }
   };
   return (

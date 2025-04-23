@@ -1,11 +1,10 @@
 import styles from "./ButtonContainer.module.css";
-import { TbBackspace } from "react-icons/tb";
 
 const ButtonContainer = ({ onButtonClick }) => {
   const btnNames = [
     "AC",
-    "(",
-    ")",
+    "DEL",
+    "()",
     "/",
     "7",
     "8",
@@ -20,8 +19,8 @@ const ButtonContainer = ({ onButtonClick }) => {
     "3",
     "+",
     "0",
+    "00",
     ".",
-    <TbBackspace />,
     "=",
   ];
   return (
