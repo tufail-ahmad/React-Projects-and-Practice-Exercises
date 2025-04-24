@@ -10,17 +10,15 @@ function App() {
 
   const handleAddTodo = (todoName, todoDueDate) => {
     const newTodo = {
+      id: Math.floor(Math.random() * 1000),
       name: todoName,
       dueDate: todoDueDate,
     };
     setTodoItems((prevTodoItems) => [...prevTodoItems, newTodo]);
   };
-  const handleDeleteTodo = (index) => {
-    setTodoItems((prevTodoItems) => {
-      const newTodoItems = [...prevTodoItems];
-      newTodoItems.splice(index, 1);
-      return newTodoItems;
-    });
+  const handleDeleteTodo = (todoId) => {
+    const newTodoItems = todoItems.filter((item) => item.id !== todoId);
+    setTodoItems(newTodoItems);
   };
 
   return (

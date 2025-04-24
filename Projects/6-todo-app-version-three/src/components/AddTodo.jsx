@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdFormatListBulletedAdd } from "react-icons/md";
 
 function AddTodo({ onNewItem }) {
   const [todoName, setTodoName] = useState("");
@@ -45,8 +46,7 @@ function AddTodo({ onNewItem }) {
             className="btn btn-success kg-btn"
             onClick={handleAddTodo}
           >
-            <i className="fa-solid fa-plus"></i>
-            Add
+            <MdFormatListBulletedAdd className="kg-icon" />
           </button>
         </div>
       </div>
