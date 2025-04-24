@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-function TodoItems({ todoItems }) {
+function TodoItems({ todoItems, onDeleteItem }) {
   return (
     <div className="item-container">
       {todoItems.map((item) => (
@@ -8,6 +8,7 @@ function TodoItems({ todoItems }) {
           key={item.name}
           todoName={item.name}
           todoDate={item.dueDate}
+          onDeleteItem={onDeleteItem}
         ></TodoItem>
       ))}
     </div>
