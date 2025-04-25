@@ -1,55 +1,47 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { MdFormatListBulletedAdd } from "react-icons/md";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [todoDueDate, setTodoDueDate] = useState("");
-  const handleTodoNameChange = (e) => {
-    setTodoName(e.target.value);
-  };
-  const handleTodoDueDateChange = (e) => {
-    setTodoDueDate(e.target.value);
-  };
-  const handleAddTodo = () => {
-    if (todoName && todoDueDate) {
-      onNewItem(todoName, todoDueDate);
-      setTodoName("");
-      setTodoDueDate("");
+  const todoNameElement = useRef();
+  const todoDueDateElement = useRef();
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const todoDueDate = todoDueDateElement.current.value;
+    if (todoName === "" || todoDueDate === "") {
+      alert("Please enter a todo name and due date.");
+      return;
     } else {
-      alert("Please fill in all fields.");
+      onNewItem(todoName, todoDueDate);
+      todoNameElement.current.value = "";
+      todoDueDateElement.current.value = "";
     }
   };
 
   return (
     <div className="container text-center">
-      <div className="row kg-row">
+      <form className="row kg-row" onSubmit={handleAddTodo}>
         <div className="col-4">
           <input
             type="text"
             placeholder="Enter todo here..."
             className="form-control kg-input"
-            value={todoName}
-            onChange={handleTodoNameChange}
+            ref={todoNameElement}
           />
         </div>
         <div className="col-4">
           <input
             type="date"
             className="form-control kg-input"
-            value={todoDueDate}
-            onChange={handleTodoDueDateChange}
+            ref={todoDueDateElement}
           />
         </div>
         <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-success kg-btn"
-            onClick={handleAddTodo}
-          >
+          <button className="btn btn-success kg-btn">
             <MdFormatListBulletedAdd className="kg-icon" />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
