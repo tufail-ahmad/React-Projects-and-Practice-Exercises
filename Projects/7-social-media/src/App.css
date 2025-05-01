@@ -1,1 +1,26 @@
+.app-container {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
 
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: #282c34;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 200px;
+  height: 100vh;
+}
+
+.footer {
+  color: white;
+  padding: 10px;
+  bottom: 0;
+  width: 80%;
+}
