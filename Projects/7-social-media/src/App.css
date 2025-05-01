@@ -35,3 +35,9 @@
 .post {
   margin-bottom: 20px;
 }
+
+.kgBage {
+  z-index: 5;
+  right: -24%;
+  top: 4%;
+}
