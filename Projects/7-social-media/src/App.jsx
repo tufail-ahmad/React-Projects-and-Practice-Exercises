@@ -2,17 +2,17 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
 import Main from "./components/Main";
+import { useState } from "react";
 
 function App() {
+  const [selectedTab, setSelectedTab] = useState("home");
   return (
     <div className="app-container">
-      <Sidebar></Sidebar>
+      <Sidebar selectedTab={selectedTab}></Sidebar>
       <div className="main-content">
         <Header></Header>
-        <Main></Main>
-        <Footer></Footer>
+        <Main selectedTab={selectedTab}></Main>
       </div>
     </div>
   );

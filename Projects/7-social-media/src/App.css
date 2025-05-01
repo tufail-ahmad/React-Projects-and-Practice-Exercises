@@ -1,26 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .app-container {
   display: flex;
   font-family: Arial, sans-serif;
 }
 
-.header {
+.main-content {
   width: 100%;
-  position: fixed;
+}
+
+.header {
   background-color: #282c34;
   padding: 20px;
   text-align: center;
 }
 
+.main {
+  padding: 20px;
+  height: 85vh;
+  overflow: auto;
+}
+
 .sidebar {
   background-color: #f4f4f4;
   padding: 20px;
-  width: 200px;
   height: 100vh;
 }
 
-.footer {
-  color: white;
-  padding: 10px;
-  bottom: 0;
-  width: 80%;
+.post {
+  margin-bottom: 20px;
 }
