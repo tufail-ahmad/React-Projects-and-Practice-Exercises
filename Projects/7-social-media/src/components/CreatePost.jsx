@@ -1,4 +1,4 @@
-import { use, useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import { PostList } from "../store/post-list-store";
 
 const CreatePost = () => {
@@ -24,13 +24,7 @@ const CreatePost = () => {
     reactionsElement.current.value = "";
     tagsElement.current.value = "";
 
-    addPost({
-      userId,
-      title,
-      content,
-      reactions,
-      tags,
-    });
+    addPost(userId, title, content, reactions, tags);
   };
 
   return (
