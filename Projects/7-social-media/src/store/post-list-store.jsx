@@ -10,6 +10,8 @@ const postListReducer = (currPostList, action) => {
   let newPostList = currPostList;
   if (action.type === "REMOVE_POST") {
     newPostList = currPostList.filter((post) => post.id !== action.payload);
+  } else if (action.type === "ADD_POST") {
+    newPostList = [action.payload, ...currPostList];
   }
   return newPostList;
 };
@@ -20,7 +22,17 @@ const PostListProvider = ({ children }) => {
     Default_PostList
   );
 
-  const addPost = () => {};
+  const addPost = (userId, title, content, reactions, tags) => {
+    const newPost = {
+      id: Math.floor(Math.random() * 1000),
+      userId,
+      title,
+      content,
+      reactions,
+      tags,
+    };
+    dispatchPostList({ type: "ADD_POST", payload: newPost });
+  };
 
   const removePost = (postId) => {
     dispatchPostList({ type: "REMOVE_POST", payload: postId });
