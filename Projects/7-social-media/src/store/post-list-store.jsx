@@ -39,7 +39,7 @@ const Default_PostList = [
     title: "Post 1",
     user: "John Doe",
     content: "This is a post",
-    likes: 10,
+    reactions: 10,
     tags: ["tag1", "tag2"],
   },
   {
@@ -47,7 +47,7 @@ const Default_PostList = [
     title: "Post 2",
     user: "Jane Smith",
     content: "This is another post",
-    likes: 20,
+    reactions: 20,
     tags: ["tag3", "tag4"],
   },
   {
@@ -55,7 +55,7 @@ const Default_PostList = [
     title: "Post 3",
     user: "Alice Johnson",
     content: "This is yet another post",
-    likes: 30,
+    reactions: 30,
     tags: ["tag5", "tag6"],
   },
 ];

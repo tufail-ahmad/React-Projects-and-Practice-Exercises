@@ -1,6 +1,34 @@
+import { useContext, useRef } from "react";
+import { PostList } from "../store/post-list-store";
+
 const CreatePost = () => {
+  const { addPost } = useContext(PostList);
+
+  const userIdElement = useRef();
+  const titleElement = useRef();
+  const contentElement = useRef();
+  const reactionsElement = useRef();
+  const tagsElement = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userId = userIdElement.current.value;
+    const title = titleElement.current.value;
+    const content = contentElement.current.value;
+    const reactions = reactionsElement.current.value;
+    const tags = tagsElement.current.value.split(" ");
+
+    addPost({
+      userId,
+      title,
+      content,
+      reactions,
+      tags,
+    });
+  };
+
   return (
-    <form className="create-post-form">
+    <form className="create-post-form" onSubmit={handleSubmit}>
       <h2 className="text-center">Create a New Post</h2>
 
       <div className="mb-3">
@@ -10,8 +38,8 @@ const CreatePost = () => {
         </label>
         <input
           type="text"
-          name="userId"
           required
+          ref={userIdElement}
           className="form-control"
           id="userId"
           placeholder="Enter your user ID..."
@@ -25,6 +53,7 @@ const CreatePost = () => {
         <input
           type="text"
           className="form-control"
+          ref={titleElement}
           id="title"
           placeholder="How are you feeling today..."
         />
@@ -37,6 +66,7 @@ const CreatePost = () => {
         <textarea
           className="form-control"
           id="content"
+          ref={contentElement}
           rows="3"
           placeholder="Write your post content here..."
           style={{ resize: "none" }}
@@ -50,6 +80,7 @@ const CreatePost = () => {
         <input
           type="text"
           className="form-control"
+          ref={reactionsElement}
           id="reactions"
           placeholder="How many people reacted to your post..."
         />
@@ -62,6 +93,7 @@ const CreatePost = () => {
         <input
           type="text"
           className="form-control"
+          ref={tagsElement}
           id="tags"
           placeholder="Please enter your hashtags using space"
         />
