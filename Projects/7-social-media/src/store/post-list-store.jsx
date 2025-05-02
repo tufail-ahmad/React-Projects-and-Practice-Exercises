@@ -7,7 +7,11 @@ export const PostList = createContext({
 });
 
 const postListReducer = (currPostList, action) => {
-  return currPostList;
+  let newPostList = currPostList;
+  if (action.type === "REMOVE_POST") {
+    newPostList = currPostList.filter((post) => post.id !== action.payload);
+  }
+  return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
@@ -18,7 +22,9 @@ const PostListProvider = ({ children }) => {
 
   const addPost = () => {};
 
-  const removePost = () => {};
+  const removePost = (postId) => {
+    dispatchPostList({ type: "REMOVE_POST", payload: postId });
+  };
 
   return (
     <PostList.Provider value={{ postList, addPost, removePost }}>
@@ -33,7 +39,6 @@ const Default_PostList = [
     title: "Post 1",
     user: "John Doe",
     content: "This is a post",
-    date: "2023-10-01",
     likes: 10,
     tags: ["tag1", "tag2"],
   },
@@ -42,9 +47,16 @@ const Default_PostList = [
     title: "Post 2",
     user: "Jane Smith",
     content: "This is another post",
-    date: "2023-10-02",
     likes: 20,
     tags: ["tag3", "tag4"],
+  },
+  {
+    id: 3,
+    title: "Post 3",
+    user: "Alice Johnson",
+    content: "This is yet another post",
+    likes: 30,
+    tags: ["tag5", "tag6"],
   },
 ];
 
