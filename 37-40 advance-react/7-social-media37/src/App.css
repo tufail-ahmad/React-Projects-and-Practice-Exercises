@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.header {
+  background-color: #282c34;
+  padding: 20px;
+  text-align: center;
+}
+
+.main {
+  padding: 20px;
+  height: 85vh;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+}
+
+.post-card {
+  margin: 20px 50px;
+}
+
+.post {
+  margin-bottom: 10px;
+}
+
+.kgBage {
+  z-index: 5;
+  right: -41%;
+  top: 4%;
+}
+
+.create-post-form {
+  margin: 20px 80px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+.create-post-form input,
+.create-post-form textarea {
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  color: #333;
+}
+.create-post-form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.create-post-form button:hover {
+  background-color: #0056b3;
+}
+
+.no-post-msg {
+  text-align: center;
+  font-size: 20px;
+  color: #888;
+  margin-top: 50px;
+  font-weight: bold;
+}
