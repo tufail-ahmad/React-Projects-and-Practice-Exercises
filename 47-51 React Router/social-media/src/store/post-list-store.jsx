@@ -3,7 +3,6 @@ import { createContext, useEffect, useReducer, useState } from "react";
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
-  fetching: false,
   removePost: () => {},
 });
 
@@ -38,32 +37,8 @@ const PostListProvider = ({ children }) => {
     dispatchPostList({ type: "REMOVE_POST", payload: postId });
   };
 
-  const [fetching, setFetching] = useState(false);
-  // State to manage the loading state
-
-  useEffect(() => {
-    setFetching(true);
-    // Set loading state to true when fetching data
-    const abortController = new AbortController();
-    // Create an abort controller to cancel the fetch request if needed
-    const signal = abortController.signal;
-    // Get the signal from the abort controller
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setFetching(false);
-        // Set loading state to false after data is fetched
-      });
-    return () => {
-      abortController.abort();
-      // Abort the fetch request if the component unmounts
-    };
-  }, []);
-  // Fetch posts from the API when the component mounts
-
   return (
-    <PostList.Provider value={{ postList, addPost, fetching, removePost }}>
+    <PostList.Provider value={{ postList, addPost, removePost }}>
       {children}
     </PostList.Provider>
   );
