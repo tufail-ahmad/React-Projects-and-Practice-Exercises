@@ -1,14 +1,21 @@
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaFaceGrinHearts, FaBagShopping } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import BagIcon from "./BagIcon";
+import { useSelector } from "react-redux";
+
 const Header = () => {
+  const bagItem = useSelector((store) => store.bag);
   return (
     <header>
       <div className="logo_container">
-        <a href="#">
+        <Link to="/">
           <img
             className="myntra_home"
             src="images/myntra_logo.webp"
             alt="Myntra Home"
           />
-        </a>
+        </Link>
       </div>
       <nav className="nav_bar">
         <a href="#">Men</a>
@@ -29,24 +36,20 @@ const Header = () => {
       </div>
       <div className="action_bar">
         <div className="action_container">
-          <span className="material-symbols-outlined action_icon">person</span>
+          <BsFillPersonFill />
           <span className="action_name">Profile</span>
         </div>
 
         <div className="action_container">
-          <span className="material-symbols-outlined action_icon">
-            favorite
-          </span>
+          <FaFaceGrinHearts />
           <span className="action_name">Wishlist</span>
         </div>
 
-        <a className="action_container" href="pages/bag.html">
-          <span className="material-symbols-outlined action_icon">
-            shopping_bag
-          </span>
+        <Link className="bag_container" to="/bag" style={{ color: "black" }}>
+          <FaBagShopping />
           <span className="action_name">Bag</span>
-          <span className="bag-item-count">0</span>
-        </a>
+          {bagItem.length > 0 && <BagIcon />}
+        </Link>
       </div>
     </header>
   );

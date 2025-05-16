@@ -5,10 +5,20 @@
     Helvetica, Arial, sans-serif;
   box-sizing: border-box;
 }
+.box {
+  padding: 10px;
+  background-color: gray;
+}
+
+.active {
+  background-color: green;
+  color: white;
+}
+
 header {
   display: flex;
   background-color: #ffffff;
-  height: 80px;
+  height: 84px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #b6b1b1;
@@ -76,12 +86,20 @@ header {
   display: flex;
   min-width: 200px;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .action_container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bag_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
 }
 
 /* Main section */
@@ -241,7 +259,6 @@ header {
 a.action_container:link {
   color: black;
 }
-
 .bag-items-container {
   display: inline-block;
   width: 64%;
@@ -377,4 +394,13 @@ a.action_container:link {
   width: 14px;
   height: 14px;
   cursor: pointer;
+}
+
+.spinner {
+  margin: 100px 0px;
+}
+
+.icon-bag {
+  position: absolute;
+  top: 54px;
 }
